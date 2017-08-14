@@ -4,7 +4,7 @@
     <title>ClusterPies</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-    <link rel="stylesheet" href="clusterpiesNew.css" />
+    <link rel="stylesheet" href="clusterpies.css" />
 </head>
 <body>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js" charset="utf-8"></script>
@@ -19,8 +19,7 @@
         "use strict"
         var geojson,
             metadata,
-            geojsonPath = 'export.json',
-            //geojsonPath = 'companyData.json',
+            geojsonPath = 'companyData.json',
             categoryField = 'DataType', //This is the fieldname for marker category (used in the pie and legend)
             iconField = 'AreaCode', //This is the fieldame for marker icon
             popupFields = ['Name','Address','AreaCode', 'City', 'DataType'], //Popup will display these fields
