@@ -2,14 +2,17 @@
 <head>
     <meta charset="utf-8">
     <title>ClusterPies</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+        crossorigin="" />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
     <link rel="stylesheet" href="clusterpies.css" />
 </head>
 <body>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js" charset="utf-8"></script>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="companyData.json"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+        crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
    
 
     <div id="container">
@@ -19,12 +22,12 @@
         "use strict"
         var geojson,
             metadata,
-            geojsonPath = 'companyData.json',
+            geojsonPath = './companyData.json',
             categoryField = 'DataType', //This is the fieldname for marker category (used in the pie and legend)
             iconField = 'AreaCode', //This is the fieldame for marker icon
             popupFields = ['Name','Address','AreaCode', 'City', 'DataType'], //Popup will display these fields
-            tileServer = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            tileAttribution = 'Map data: <a href="http://openstreetmap.org">OSM</a>',
+            tileServer = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            tileAttribution = 'Map data: <a href="https://openstreetmap.org">OSM</a>',
             rmax = 30, //Maximum radius for cluster pies
 
             markerclusters = L.markerClusterGroup({
